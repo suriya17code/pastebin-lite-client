@@ -74,15 +74,31 @@ const CreatePaste: React.FC = () => {
                         />
                     </Box>
 
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        disabled={loading}
-                        sx={{ mt: 2, py: 1.5, fontWeight: 'bold' }}
-                    >
-                        {loading ? <CircularProgress size={24} /> : 'Create Paste'}
-                    </Button>
+                    <Box sx={{ mt: 2, display: 'flex', gap: 2 }}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            size="large"
+                            disabled={loading}
+                            sx={{ flex: 2, py: 1.5, fontWeight: 'bold' }}
+                        >
+                            {loading ? <CircularProgress size={24} /> : 'Create Paste'}
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            size="large"
+                            color="inherit"
+                            onClick={() => {
+                                setContent('');
+                                setTtl('');
+                                setMaxViews('');
+                                dispatch(resetCreatedPaste());
+                            }}
+                            sx={{ flex: 1, py: 1.5, fontWeight: 'bold' }}
+                        >
+                            Clear
+                        </Button>
+                    </Box>
                 </Box>
 
                 {error && (
