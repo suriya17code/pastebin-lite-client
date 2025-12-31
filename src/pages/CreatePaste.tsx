@@ -88,6 +88,7 @@ const CreatePaste: React.FC = () => {
                             variant="outlined"
                             size="large"
                             color="inherit"
+                            disabled={loading}
                             onClick={() => {
                                 setContent('');
                                 setTtl('');
